@@ -1,22 +1,20 @@
 import datetime
-import json
 import time
+import os
 
 import schedule
 import tweepy
+from dotenv import load_dotenv
 
 from picSearcher import Job
 
-json_file = "TOKEN.json"
+load_dotenv()
 
-with open(json_file, "r") as f:
-    TOKENS = json.load(f)
-
-API_KEY = TOKENS["API_KEY"]
-API_SECRET = TOKENS["API_SECRET"]
-BEARER_TOKEN = TOKENS["BEARER_TOKEN"]
-ACCESS_TOKEN = TOKENS["ACCESS_TOKEN"]
-ACCESS_TOKEN_SECRET = TOKENS["ACCESS_TOKEN_SECRET"]
+API_KEY = os.getenv("API_KEY")
+API_SECRET = os.getenv("API_SECRET")
+BEARER_TOKEN = os.getenv("BEARER_TOKEN")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 
 client = tweepy.Client(BEARER_TOKEN, API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
