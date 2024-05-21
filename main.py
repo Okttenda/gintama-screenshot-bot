@@ -1,8 +1,10 @@
-import tweepy
 import datetime
-import schedule
 import json
 import time
+
+import schedule
+import tweepy
+
 from picSearcher import Job
 
 json_file = "TOKEN.json"
